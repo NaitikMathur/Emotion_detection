@@ -33,8 +33,6 @@ mlxtend
 nltk
 flask-login
 requests
-tensorflow
-keras
 
 oauthlib
 pyOpenSSL
