@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import os
 from werkzeug.utils import secure_filename
