@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import tensorflow as tf
-from keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
 import os
 from werkzeug.utils import secure_filename
 from keras.preprocessing import image
@@ -13,7 +13,7 @@ from keras.applications.vgg16 import preprocess_input
 import scipy
 from scipy import stats
 from keras.models import load_model
-model = load_model('/content/drive/MyDrive/emotion detection/model1.h5')
+model = load_model('model1.h5')
 html_temp = """
    <div class="" style="background-color:blue;" >
    <div class="clearfix">           
@@ -40,7 +40,7 @@ def import_and_predict(image):
   input_data = np.array(expand_input)
   input_data = input_data/255
 
-  pred = loaded_model.predict(input_data)
+  pred = model.predict(input_data)
   result = pred.argmax()
   if result == 0:
     return "Anger"
@@ -58,7 +58,7 @@ if file is None:
   st.text("Please upload an Image")
 else:
   image=Image.open(file)
-  #image=np.array(image)
+  image=np.array(image)
   #file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
   #image = cv2.imdecode(file_bytes, 1)
   st.image(image,caption='Uploaded Image.', use_column_width=True)
